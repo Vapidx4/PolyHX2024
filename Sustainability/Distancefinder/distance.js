@@ -1,7 +1,12 @@
 // To find distance between 2 location
 function findDistance(location1, location2) {
     let geocoder;
-    let request;
+
+    const request = {
+        query: "london",
+        fields: ["name", "geometry"],
+      }
+      
     geocoder = new google.maps.Geocoder();
 
     geocoder.geocode(request).then((result) => {
