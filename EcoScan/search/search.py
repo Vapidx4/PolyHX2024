@@ -1,11 +1,28 @@
 from bs4 import BeautifulSoup
 import json
 import requests
+from dotenv import load_dotenv
+import os
+from openai import OpenAI
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get the API key from the environment variables
+api_key = os.getenv("OPENAI_API_KEY")
+
+if api_key is None:
+    raise ValueError("OPENAI_API_KEY not found in the environment variables.")
+
+openai = OpenAI(api_key=api_key)
+
+# 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
+model_id = 'gpt-3.5-turbo-0125'
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'}
 
 def search(query):
-    url = f'https://www.google.com/search?q={query}&ie=utf-8&oe=utf-8&num=10'
+    url = f'https://www.google.com/search?q={query} issues in sustainability&ie=utf-8&oe=utf-8&num=10'
     html = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(html.text, 'html.parser')
@@ -63,6 +80,35 @@ for result in query_result:
             pass
 
 
-# Create a json file and write the data to it
+# # Create a json file and write the data to it
 with open('./data.json', 'w') as file:
     json.dump(query_result, file)
+
+
+
+client = OpenAI()
+
+completion = client.chat.completions.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {
+        "role": "system",
+        "content": "You are an experienced environmental professional with in-depth knowledge of sustainability. Summarize content you are provided with for a second-grade student."
+    },
+    {
+        "role": "user",
+        "content": f"{query_result} \n can you summarize the results descriptions for me?"
+    },
+    {
+        "role": "user",
+        "content": "what conclusion can you make from this?"
+    },
+    {
+        "role": "user",
+        "content": "what score out of 100 will you give them with the data given no matter how small it is?"
+    },
+  ],
+  n=1
+)
+
+print(completion.choices[0].message.content)
