@@ -5,13 +5,14 @@ function findDistance(location1, location2) {
     const request = {
         query: "london",
         fields: ["name", "geometry"],
-      }
-      
+    }
+
     geocoder = new google.maps.Geocoder();
 
     geocoder.geocode(request).then((result) => {
         const { results } = result;
         JSON.stringify(result, null, 2);
+        console.log(result);
     }).catch((e) => {
         alert("Geocode was not successful for the following reason: " + e);
     })
