@@ -1,6 +1,5 @@
 from googlemaps import convert
 import googlemaps
-import json
 import math
 
 def geocode(client, address, place_id=None, components=None, bounds=None, region=None,
@@ -42,5 +41,3 @@ def findDistance(location1, location2):
     EARTH_RADIUS = 6371
     distance = 2 * EARTH_RADIUS * (math.sqrt(((1 - math.cos(list2[0] - list1[0])) / 2) + (math.cos(list1[0]) * math.cos(list2[0]) * (1 - math.cos(list2[1] - list1[1])) / 2)))
     return distance
-
-print(findDistance("china", "old montreal"))
