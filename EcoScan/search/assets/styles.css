@@ -105,3 +105,10 @@ html body{
     -ms-border-radius: 1em;
     -o-border-radius: 1em;
 }
+
+#output-text p{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
