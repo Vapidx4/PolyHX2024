@@ -30,7 +30,6 @@ def geocode(client, address, place_id=None, components=None, bounds=None, region
 def findLocation(place):
     gmaps = googlemaps.Client(key='AIzaSyC7BjuLArIAW2SIg2ytPpXMPAlgmEULwC8')
     data = geocode(gmaps, place)
-    print(data)
     firstItem = data[0]
     lat = math.radians(firstItem["geometry"]["location"]["lat"])
     lng = math.radians(firstItem["geometry"]["location"]["lng"])
@@ -44,3 +43,4 @@ def findDistance(location1, location2):
     distance = 2 * EARTH_RADIUS * (math.sqrt(((1 - math.cos(list2[0] - list1[0])) / 2) + (math.cos(list1[0]) * math.cos(list2[0]) * (1 - math.cos(list2[1] - list1[1])) / 2)))
     return distance
 
+print(findDistance("china", "old montreal"))
