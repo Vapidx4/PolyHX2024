@@ -1,5 +1,4 @@
 from dash import Dash, html, dcc, Input, Output, State
-from dash_camera import DccCamera
 from dash.exceptions import PreventUpdate
 import gpt
 import brandclassifier as bc
