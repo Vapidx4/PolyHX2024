@@ -24,7 +24,7 @@ app.layout = html.Div(
         html.Div(
             id="search-div",
             children=[
-                dcc.Input(id="query-input", type="text", placeholder="Enter query..."),
+                dcc.Input(id="query-input", type="text", placeholder="Enter brand name..."),
                 html.Button("Submit", id="submit-button"),
                 dcc.Loading(
                     id="loading-output",
