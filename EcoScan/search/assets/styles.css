@@ -98,5 +98,10 @@ html body{
 }
 
 #output-text{
-    background-color: skyblue;
+    background-color: rgb(227, 236, 237);
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
 }
