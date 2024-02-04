@@ -34,14 +34,17 @@ app.layout = html.Div(
                         'Drag and Drop or ',
                         html.A('Select Files')
                     ]),
+                    style={
+                        'width': '100%',
+                        'height': '10%',
+                        'lineHeight': '10%',
+                        'borderWidth': '1em',
+                        'borderStyle': 'dashed',
+                        'borderRadius': '1em',
+                        'textAlign': 'center',
+                        'margin': '2%'
+                    },
                     multiple=False,
-                ),
-                dcc.Camera(
-                    id="camera",
-                    audio=False,
-                    width=640,
-                    height=480,
-                    screenshot_format="jpeg",
                 ),
                 dcc.Loading(
                     id="loading-output",
