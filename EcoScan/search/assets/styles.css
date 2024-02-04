@@ -1,0 +1,107 @@
+html body{
+    padding: 0;
+    margin: 0;
+    font-family: Futura, sans-serif;
+    /* set the background image as a local file */
+    background-image: url('img/bg2.avif');
+    background-size: cover;
+    background-repeat: repeat;
+    color: white;
+}
+
+#main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#response-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: white; */
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+}
+
+#search-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background color in rgba */
+    background-color: rgba(255, 255, 255, 0.5);
+    
+    margin-left: 10vw;
+    margin-right: 10vw;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+}
+
+#output-text{
+    color: black;
+    /* center the text */
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#submit-button{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#query-input{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+    font-size: 1em;
+    width: 80%;
+}
+
+#main-title{
+    font-size: 5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#loading-output{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#output-text{
+    background-color: rgb(227, 236, 237);
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+}
