@@ -4,27 +4,26 @@ from pyzbar.pyzbar import decode
 # https://www.geeksforgeeks.org/how-to-make-a-barcode-reader-in-python/
 
 def readBarcode(image):
-    img = cv2.imread(image)
-    barcodes = decode(img)
 
-    if (not barcodes):
-        print("The barcode couldn't be read")
+    try:
+        img = cv2.imread(image)
+        barcode = decode(img)
+    except Exception as e:
+        print(f"Error: {e}")
+        barcode = ""
+
+    if (not barcode):
+        return
     else:
-        for barcode in barcodes:
+        for barcode in barcode:
             (x,y,w,h) = barcode.rect
 
             cv2.rectangle(img, (x-10, y-10),
                           (x + w+10, y + h+10), 
                           (255, 0, 0), 2)
             
-            if barcode.data != "":
-                print(barcode.data)
-                print(barcode.type)
+            if (barcode.data != ""):
+                barcodeCode = barcode.data.decode("utf-8")
+                barcodeType = barcode.type
 
-    cv2.imshow("Image", img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-if __name__ == "__main__":
-    image="barcode2.jpg"
-    readBarcode(image)
+    return [barcodeCode, barcodeType]
