@@ -33,16 +33,6 @@ app.layout = html.Div(
                         'Drag and Drop or ',
                         html.A('Select Files')
                     ]),
-                    style={
-                        'width': '100%',
-                        'height': '10%',
-                        'lineHeight': '10%',
-                        'borderWidth': '1em',
-                        'borderStyle': 'dashed',
-                        'borderRadius': '1em',
-                        'textAlign': 'center',
-                        'margin': '2%'
-                    },
                     multiple=False,
                 ),
                 dcc.Loading(
