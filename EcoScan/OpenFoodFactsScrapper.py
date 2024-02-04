@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import Barcode
+from . import Barcode
 
 # https://world.openfoodfacts.org/
 
@@ -101,16 +101,15 @@ def scrapWebsite():
 
     return dataDict
 
-if __name__ == "__main__":
-    img = "res/barcode.png"
+def getBarecodeData(img):
+    global url
     barcodeData = Barcode.readBarcode(img)
     if barcodeData:
         barcodeCode = barcodeData[0]
         print(barcodeData)
         url = f"https://world.openfoodfacts.org/product/{barcodeCode}"
-        source = ""
         runSelenium()
         dataDict = scrapWebsite()
-        print(dataDict)
+        return dataDict
     else:
         print("The barcode couldn't be read")
