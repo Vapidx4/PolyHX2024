@@ -2,10 +2,7 @@
 function findDistance(location1, location2) {
     let geocoder;
 
-    const request = {
-        query: "london",
-        fields: ["name", "geometry"],
-    }
+    let request = { address : "london"};
 
     geocoder = new google.maps.Geocoder();
 
@@ -17,3 +14,9 @@ function findDistance(location1, location2) {
         alert("Geocode was not successful for the following reason: " + e);
     })
 }
+
+function initMap() {
+    findDistance("yes", "no");
+}
+
+initMap();
